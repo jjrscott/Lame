@@ -15,6 +15,7 @@ class TheMovieDatabase {
         case badResponse(URLResponse)
         case badStatusCode(HTTPURLResponse)
         case noData(HTTPURLResponse)
+        case invalidDate
     }
     
     private let apiKey = "3a330fc36a2b951b7320b3badba67d90"
@@ -26,7 +27,7 @@ class TheMovieDatabase {
         let overview: String
         let title: String
         let popularity: Double
-        let releaseDate: String
+        let releaseDate: Date
     }
     
     struct TrendingResponse: Decodable {
@@ -40,7 +41,7 @@ class TheMovieDatabase {
         
         guard let url = URL(string: "\(trendingUrlPrefix)?api_key=\(apiKey)&page=\(pageIndex)") else { fatalError() }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { [unowned self] (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -69,6 +70,7 @@ class TheMovieDatabase {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                decoder.dateDecodingStrategy = .custom(self.decodeDate)
                 
                 let trendingResponse = try decoder.decode(TrendingResponse.self, from: data)
                 
@@ -77,10 +79,30 @@ class TheMovieDatabase {
                 result(.failure(error))
                 return
             }
-            
         }
         task.resume()
     }
     
+    // MARK: - Date decoding
     
+    private lazy var dateFormatter = defaultDateFormatter()
+    
+    func defaultDateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }
+    
+    func decodeDate(_ decoder: Decoder) throws -> Date {
+        let container = try decoder.singleValueContainer()
+        let dateStr = try container.decode(String.self)
+        
+        if let date = dateFormatter.date(from: dateStr) {
+            return date
+        }
+        throw Error.invalidDate
+    }
 }
