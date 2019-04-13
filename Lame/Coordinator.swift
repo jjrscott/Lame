@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  Coordinator.swift
 //  Lame
 //
 //  Created by John Scott on 12/04/2019.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class Coordinator: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 }
