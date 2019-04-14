@@ -15,6 +15,8 @@
 		057F1132226264DA00EAD3F1 /* MovieListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F1131226264DA00EAD3F1 /* MovieListViewCell.swift */; };
 		057F11342262760300EAD3F1 /* TheMovieDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F11332262760300EAD3F1 /* TheMovieDatabase.swift */; };
 		057F11392262A3D000EAD3F1 /* ResultSemaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F11382262A3D000EAD3F1 /* ResultSemaphore.swift */; };
+		057F113C226326E400EAD3F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 057F113B226326E400EAD3F1 /* README.md */; };
+		057F113E22633F6500EAD3F1 /* Result+Pipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F113D22633F6500EAD3F1 /* Result+Pipe.swift */; };
 		059A995B2261F4AD0084369B /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995A2261F4AD0084369B /* MovieListViewController.swift */; };
 		059A995D2261F5120084369B /* UIResponder+Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995C2261F5120084369B /* UIResponder+Target.swift */; };
 		059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995E2261F5D70084369B /* MovieListViewModel.swift */; };
@@ -43,6 +45,8 @@
 		057F1131226264DA00EAD3F1 /* MovieListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewCell.swift; sourceTree = "<group>"; };
 		057F11332262760300EAD3F1 /* TheMovieDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDatabase.swift; sourceTree = "<group>"; };
 		057F11382262A3D000EAD3F1 /* ResultSemaphore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSemaphore.swift; sourceTree = "<group>"; };
+		057F113B226326E400EAD3F1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		057F113D22633F6500EAD3F1 /* Result+Pipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Pipe.swift"; sourceTree = "<group>"; };
 		059A995A2261F4AD0084369B /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		059A995C2261F5120084369B /* UIResponder+Target.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Target.swift"; sourceTree = "<group>"; };
 		059A995E2261F5D70084369B /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		0514C6D822611A9B00F6F72F = {
 			isa = PBXGroup;
 			children = (
+				057F113B226326E400EAD3F1 /* README.md */,
 				0514C6E322611A9B00F6F72F /* Lame */,
 				0514C6F822611A9D00F6F72F /* LameTests */,
 				0514C6E222611A9B00F6F72F /* Products */,
@@ -93,6 +98,7 @@
 				057F1131226264DA00EAD3F1 /* MovieListViewCell.swift */,
 				057F11332262760300EAD3F1 /* TheMovieDatabase.swift */,
 				059A995C2261F5120084369B /* UIResponder+Target.swift */,
+				057F113D22633F6500EAD3F1 /* Result+Pipe.swift */,
 				0514C6E822611A9B00F6F72F /* Main.storyboard */,
 				0514C6EB22611A9D00F6F72F /* Assets.xcassets */,
 				0514C6ED22611A9D00F6F72F /* LaunchScreen.storyboard */,
@@ -194,6 +200,7 @@
 			files = (
 				0514C6EF22611A9D00F6F72F /* LaunchScreen.storyboard in Resources */,
 				0514C6EC22611A9D00F6F72F /* Assets.xcassets in Resources */,
+				057F113C226326E400EAD3F1 /* README.md in Resources */,
 				0514C6EA22611A9B00F6F72F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057F113E22633F6500EAD3F1 /* Result+Pipe.swift in Sources */,
 				057F1132226264DA00EAD3F1 /* MovieListViewCell.swift in Sources */,
 				059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */,
 				059A995D2261F5120084369B /* UIResponder+Target.swift in Sources */,
