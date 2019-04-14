@@ -12,7 +12,6 @@ class MovieListViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("\(value(forKey: "indexPath") ?? "nil") \(#function)")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,9 +19,4 @@ class MovieListViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    @objc override func prepareForReuse() {
-        print("\(value(forKey: "indexPath") ?? "nil") \(#function)")
-    }
-
 }

@@ -37,23 +37,31 @@ class MovieListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("\(indexPath) \(#function)")
         return tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("\(indexPath) \(#function)")
-        cell.textLabel?.text = "\(indexPath)"
+        viewModel.requestMovie(at: movieIndex(for: indexPath)) { (result) in
+            if let movie = try? result.get() {
+                cell.textLabel?.text = movie.title
+                cell.detailTextLabel?.text = movie.overview
+            }
+            else
+            {
+                cell.textLabel?.text = "\(indexPath)"
+                cell.detailTextLabel?.text = ":o("
+            }
+            
+        }
     }
     
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("\(indexPath) \(#function)")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.requestMovie(at: movieIndex(for: indexPath)) { (result) in
             if let movie = try? result.get() {
-                target?.selectMovie(movie)
+                self.target?.selectMovie(movie)
             }
         }
     }
