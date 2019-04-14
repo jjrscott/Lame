@@ -13,3 +13,12 @@ class Coordinator: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 }
+
+extension Coordinator: MovieListViewControllerDelegate {
+    func movieListViewController(_ controller: MovieListViewController, didSelectMovie movie: MovieListViewModel.Movie) {
+        controller.performSegue(withIdentifier: "ShowMovie") { (viewController) in
+            guard let viewController = viewController as? MovieViewController else { fatalError() }
+            viewController.movie = movie
+        }
+    }
+}

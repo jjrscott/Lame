@@ -10,13 +10,18 @@ import UIKit
 
 class MovieListViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBOutlet var posterView: UIImageView!
+    @IBOutlet var titleView: UILabel!
+    @IBOutlet var overviewView: UILabel!
+    @IBOutlet var voteAverageView: UILabel!
+    @IBOutlet var releaseDateView: UILabel!
+ 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterView.image = nil
+        titleView.text = nil
+        overviewView.text = nil
+        voteAverageView.text = nil
+        releaseDateView.text = nil
     }
 }

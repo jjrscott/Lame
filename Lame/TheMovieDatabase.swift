@@ -28,7 +28,7 @@ class TheMovieDatabase {
         let posterPath: String?
         let overview: String
         let title: String
-        let popularity: Double
+        let voteAverage: Double
         let releaseDate: Date
     }
     

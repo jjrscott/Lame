@@ -9,7 +9,7 @@
 import Foundation
 
 extension Result {
-    func pipe<NewSuccess>(to: @escaping (Result<NewSuccess, Failure>)->Void, transform: (Success, (Result<NewSuccess, Failure>)->Void) -> Void) {
+    func pipe<NewSuccess>(to: @escaping (Result<NewSuccess, Failure>)->Void, transform: (Success, @escaping (Result<NewSuccess, Failure>)->Void) -> Void) {
         switch self {
         case .success(let value):
             transform(value, to)

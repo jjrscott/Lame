@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MovieListViewControllerDelegate: AnyObject {
-    func selectMovie(_ movie: MovieListViewModel.Movie)
+    func movieListViewController(_ controller:MovieListViewController, didSelectMovie movie: MovieListViewModel.Movie)
 }
 
 class MovieListViewController: UITableViewController {
@@ -37,22 +37,30 @@ class MovieListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath) as! MovieListViewCell
+        
         viewModel.requestMovie(at: movieIndex(for: indexPath)) { (result) in
             if let movie = try? result.get() {
-                cell.textLabel?.text = movie.title
-                cell.detailTextLabel?.text = movie.overview
+                cell.titleView.text = movie.title
+                cell.overviewView.text = movie.overview
+                cell.voteAverageView.text = movie.voteAverage
+                cell.voteAverageView.textColor = movie.voteAverageColor
+                cell.releaseDateView.text = movie.releaseDate
+                
+                movie.requestPoster { (result) in
+                    cell.posterView.image = try? result.get()
+                }
             }
             else
             {
                 cell.textLabel?.text = "\(indexPath)"
                 cell.detailTextLabel?.text = ":o("
             }
-            
         }
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     }
     
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -61,7 +69,7 @@ class MovieListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.requestMovie(at: movieIndex(for: indexPath)) { (result) in
             if let movie = try? result.get() {
-                self.target?.selectMovie(movie)
+                self.target?.movieListViewController(self, didSelectMovie: movie)
             }
         }
     }

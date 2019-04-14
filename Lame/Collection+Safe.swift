@@ -1,6 +1,6 @@
 //
 //  Collection+Safe.swift
-//  Parabola
+//  Lame
 //
 //  Created by Penkey Suresh on 14/05/2016.
 //  https://stackoverflow.com/a/37225027/542244
