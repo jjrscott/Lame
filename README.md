@@ -1,6 +1,6 @@
 #  Lamé
 
-Lamé is a simple example of an MVVM-C application written in Swift for iOS. It has **zero** external dependancies so should function fresh out of the box.
+Lamé is a simple example of an MVVM-C application written in Swift for iOS. It has **zero** external dependencies so should function fresh out of the box.
 
 ### The responder chain
 
@@ -25,11 +25,11 @@ If `delegate` is set then it is used otherwise the view controller will search u
 
 Apple encourages the use of storyboards but keeping the flow out of view controllers is made almost impossible by the existence of `UIViewController.prepare(for:sender:)`.
 
-However, back in the ObjC days I used runtime magic and the knowledge that the whole process happens on the main thread to produce `performSegue(withIdentifier:prepare:)` which allows you to handle the preparation in the same code `performSegue` is called. In our case, the coordinator.
+However, back in the ObjC days, I used runtime magic and the knowledge that the whole process happens on the main thread to produce `performSegue(withIdentifier:prepare:)` which allows you to handle the preparation in the same code `performSegue` is called. In our case, the coordinator.
 
 ### ResultSemaphore
 
-`ResultSemaphore` extends `Result` across multiple threads in order to pass data from inside a block (say a network response) to the code waiting for it (say a network test). Note how we can mix the two to produce code like:
+`ResultSemaphore` extends `Result` across multiple threads to pass data from inside a block (say a network response) to the code waiting for it (say a network test). Note how we can mix the two to produce code like:
 
 ```swift
 client.requestTrending(result: semaphore.signal)
