@@ -39,7 +39,7 @@ Very tidy.
 
 ## Bugs
 
-Every real project has bugs that miss the ship date. As Lame is designed to be a good example, it has bugs too. (At least that's my story, and I'm probably not going to stick to it). Take a look at [Poster images not appearing](issues/1) for a cracking example.
+Every real project has bugs that miss the ship date. As Lame is designed to be a good example, it has bugs too. (At least that's my story, and I'm probably not going to stick to it). Take a look at "[Poster images not appearing](/jjrscott/Lame/issues/1)" for a cracking example.
 
 ## Gabriel Lamé
 
