@@ -1,5 +1,5 @@
 //
-//  UIResponder+Target.swift
+//  UIResponder+Next.swift
 //  Lame
 //
 //  Created by John Scott on 11/04/2019.
@@ -9,19 +9,19 @@
 import UIKit
 
 extension UIResponder {
-    func target<Type>(conformingTo type: Type.Type) -> Type? {
+    func next<Type>(as type: Type.Type) -> Type? {
         if let target = self as? Type {
             return target
         } else {
-            return next?.target(conformingTo: type)
+            return next?.next(as: type)
         }
     }
     
-    func target<Type>(default value: Type?) -> Type? {
+    func next<Type>(default value: Type?) -> Type? {
         if let value = value {
             return value
         } else {
-            return next?.target(conformingTo: Type.self)
+            return next?.next(as: Type.self)
         }
     }
 }

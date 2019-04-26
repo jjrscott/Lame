@@ -18,7 +18,7 @@ class MovieListViewController: UITableViewController {
     
     weak var delegate: MovieListViewControllerDelegate?
     
-    private var target: MovieListViewControllerDelegate? { return target(default: delegate) }
+    private var target: MovieListViewControllerDelegate? { return next(default: delegate) }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
