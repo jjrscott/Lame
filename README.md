@@ -11,7 +11,7 @@ class SomeViewController: UITableViewController {
         
    weak var delegate: SomeViewControllerDelegate?
     
-   private var target: SomeViewControllerDelegate? { return target(default: delegate) }
+   private var target: SomeViewControllerDelegate? { return next(default: delegate) }
     
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       target?.selectItem(at: indexPath)
