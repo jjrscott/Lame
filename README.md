@@ -4,22 +4,20 @@ Lamé is a simple example of an MVVM-C application written in Swift for iOS. It 
 
 ### The responder chain
 
-Lame uses the responder chain to connect responders (e.g. `UIViewController`) with the coordinator which is itself a `UIResponder` (and `UIApplicationDelegate`). 
+Lame uses the responder chain to connect responders (e.g. `UIViewController`) with the coordinator which is itself a `UIResponder` (and `UIApplicationDelegate`). This functionality is implemented via `UIResponderDelegate` along with its associated default implementation
 
 ```swift
-class SomeViewController: UITableViewController {
+class SomeViewController: UITableViewController, UIResponderDelegate {
         
    weak var delegate: SomeViewControllerDelegate?
-    
-   private var target: SomeViewControllerDelegate? { return next(default: delegate) }
-    
+       
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       target?.selectItem(at: indexPath)
     }
 }
 ```
 
-If `delegate` is set then it is used otherwise the view controller will search up the chain until it finds a responder that conforms to `SomeViewControllerDelegate`. In our example, the root `UIResponder` is `Coordinator`.
+If `delegate` is set, then it is used; otherwise, the view controller will search up the chain until it finds a responder that conforms to `SomeViewControllerDelegate`. In our example, the root `UIResponder` is `Coordinator`.
 
 ### Segues
 

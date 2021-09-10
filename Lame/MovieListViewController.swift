@@ -12,13 +12,11 @@ protocol MovieListViewControllerDelegate: AnyObject {
     func movieListViewController(_ controller:MovieListViewController, didSelectMovie movie: MovieListViewModel.Movie)
 }
 
-class MovieListViewController: UITableViewController {
+class MovieListViewController: UITableViewController, UIResponderDelegate {
     
     var viewModel = MovieListViewModel()
     
     weak var delegate: MovieListViewControllerDelegate?
-    
-    private var target: MovieListViewControllerDelegate? { return next(default: delegate) }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

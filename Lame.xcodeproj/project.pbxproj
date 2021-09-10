@@ -21,8 +21,8 @@
 		057F11422263A5EE00EAD3F1 /* UIViewController+Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F11412263A5EE00EAD3F1 /* UIViewController+Segue.swift */; };
 		057F11442263A64100EAD3F1 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057F11432263A64100EAD3F1 /* MovieViewController.swift */; };
 		059A995B2261F4AD0084369B /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995A2261F4AD0084369B /* MovieListViewController.swift */; };
-		059A995D2261F5120084369B /* UIResponder+Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995C2261F5120084369B /* UIResponder+Next.swift */; };
 		059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995E2261F5D70084369B /* MovieListViewModel.swift */; };
+		062909EC26EBBCF30062FBC5 /* UIResponder+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */; };
 		06E7729A26B2AEE800CD42BE /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +55,8 @@
 		057F11412263A5EE00EAD3F1 /* UIViewController+Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Segue.swift"; sourceTree = "<group>"; };
 		057F11432263A64100EAD3F1 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		059A995A2261F4AD0084369B /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
-		059A995C2261F5120084369B /* UIResponder+Next.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Next.swift"; sourceTree = "<group>"; };
 		059A995E2261F5D70084369B /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Delegate.swift"; sourceTree = "<group>"; };
 		06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,7 @@
 				059A995E2261F5D70084369B /* MovieListViewModel.swift */,
 				057F11432263A64100EAD3F1 /* MovieViewController.swift */,
 				057F11332262760300EAD3F1 /* TheMovieDatabase.swift */,
-				059A995C2261F5120084369B /* UIResponder+Next.swift */,
+				062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */,
 				057F113D22633F6500EAD3F1 /* Result+Pipe.swift */,
 				057F113F2263622100EAD3F1 /* Collection+Safe.swift */,
 				057F11412263A5EE00EAD3F1 /* UIViewController+Segue.swift */,
@@ -236,8 +236,8 @@
 				057F11422263A5EE00EAD3F1 /* UIViewController+Segue.swift in Sources */,
 				057F1132226264DA00EAD3F1 /* MovieListViewCell.swift in Sources */,
 				059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */,
-				059A995D2261F5120084369B /* UIResponder+Next.swift in Sources */,
 				057F11342262760300EAD3F1 /* TheMovieDatabase.swift in Sources */,
+				062909EC26EBBCF30062FBC5 /* UIResponder+Delegate.swift in Sources */,
 				057F11442263A64100EAD3F1 /* MovieViewController.swift in Sources */,
 				0514C6E522611A9B00F6F72F /* Coordinator.swift in Sources */,
 				057F11402263622100EAD3F1 /* Collection+Safe.swift in Sources */,
