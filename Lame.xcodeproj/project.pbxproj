@@ -23,6 +23,7 @@
 		059A995B2261F4AD0084369B /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995A2261F4AD0084369B /* MovieListViewController.swift */; };
 		059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059A995E2261F5D70084369B /* MovieListViewModel.swift */; };
 		062909EC26EBBCF30062FBC5 /* UIResponder+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */; };
+		062909EE26EBEB340062FBC5 /* XCTestCase+Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */; };
 		06E7729A26B2AEE800CD42BE /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		059A995A2261F4AD0084369B /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		059A995E2261F5D70084369B /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Delegate.swift"; sourceTree = "<group>"; };
+		062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Expectation.swift"; sourceTree = "<group>"; };
 		06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 			children = (
 				0514C6F922611A9D00F6F72F /* LameTests.swift */,
 				057F11382262A3D000EAD3F1 /* ResultSemaphore.swift */,
+				062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */,
 				0514C6FB22611A9D00F6F72F /* Info.plist */,
 			);
 			path = LameTests;
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0514C6FA22611A9D00F6F72F /* LameTests.swift in Sources */,
+				062909EE26EBEB340062FBC5 /* XCTestCase+Expectation.swift in Sources */,
 				057F11392262A3D000EAD3F1 /* ResultSemaphore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
