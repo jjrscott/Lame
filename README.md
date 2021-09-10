@@ -2,6 +2,16 @@
 
 Lamé is a simple example of an MVVM-C application written in Swift for iOS. It has **zero** external dependencies so should function fresh out of the box.
 
+### Setup
+
+This project builds against Xcode 12.5.1. If you wish to run this on a device you will need to:
+
+1. update the bundle identifier of the app to something other than `com.jjrscott.Lame`
+2. set the Team
+3. enable Automatically manage signing
+
+![](Assets/bundle-provisioning.png)
+
 ### The responder chain
 
 Lame uses the responder chain to connect responders (e.g. `UIViewController`) with the coordinator which is itself a `UIResponder` (and `UIApplicationDelegate`). This functionality is implemented via `UIResponderDelegate` along with its associated default implementation
