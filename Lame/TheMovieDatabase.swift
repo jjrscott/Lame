@@ -150,3 +150,18 @@ class TheMovieDatabase {
         throw Error.invalidDate
     }
 }
+
+@available(iOS 15.0.0, *)
+extension TheMovieDatabase {
+    func trending(page pageIndex: Int = 1) async throws -> [TrendingResult] {
+        return try await withResultHandler { resultHandler in
+            requestTrending(page: pageIndex, result: resultHandler)
+        }
+    }
+    
+    func poster(path: String) async throws -> Data {
+        return try await withResultHandler { resultHandler in
+            requestPoster(path: path, result: resultHandler)
+        }
+    }
+}

@@ -20,42 +20,54 @@ class LameTests: XCTestCase {
 
     override func tearDown() {
     }
-
-    func testTrendingRequest() {
-        let semaphore = ResultSemaphore<[TheMovieDatabase.TrendingResult],Error>()
-
+    
+    @available(iOS 15.0.0, *)
+    func testTrendingRequest() async throws {
+        
         let client = TheMovieDatabase()
         
-        client.requestTrending(result: semaphore.signal)
+        let trendingResults = try await withCheckedThrowingContinuation( { (continuation: CheckedContinuation<[TheMovieDatabase.TrendingResult], Error>) in
+            client.requestTrending { result in
+                continuation.resume(with: result)
+            }
+        })
         
-        do {
-            let result = try semaphore.wait()
-            XCTAssertGreaterThan(result.count, 0)
-        } catch let error {
-            XCTAssertNil(error)
-        }
+        XCTAssertGreaterThan(trendingResults.count, 0)
     }
-
-    func testPosterRequest() throws {
-        let semaphore = ResultSemaphore<Data,Error>()
-
+    
+    func testPosterRequestUsingExpecations() {
         let client = TheMovieDatabase()
         
-        client.requestTrending { result in
-            result.pipe(to: semaphore.signal) { (movies, to) in
-                if let posterPath = movies.compactMap({ $0.posterPath }).first {
-                    client.requestPoster(path: posterPath, result: semaphore.signal)
-                } else {
-                    semaphore.signal(.failure(TestError.noPosters))
+        wait(timeout: 10) { expectation in
+            client.requestTrending { result in
+                switch result {
+                case .success(let trendings):
+                    if let posterPath = trendings.compactMap({ $0.posterPath }).first {
+                        client.requestPoster(path: posterPath) { result in
+                            switch result {
+                            case .success(_): break
+                            case .failure(_): expectation.isInverted = true
+                            }
+                            expectation.fulfill()
+                        }
+                    }
+                case .failure(_): expectation.isInverted = true
                 }
+                expectation.fulfill()
             }
         }
+    }
+    
+    @available(iOS 15.0.0, *)
+    func testPosterRequestUsingContinuations() async throws {
+        let client = TheMovieDatabase()
+
+        let trendingResults = try await client.trending()
         
-        do {
-            let result = try semaphore.wait()
-            XCTAssertGreaterThan(result.count, 0)
-        } catch let error {
-            XCTAssertNil(error)
+        if let posterPath = trendingResults.compactMap({ $0.posterPath }).first {
+            _ = try await client.poster(path: posterPath)
+        } else {
+            XCTFail()
         }
     }
 }

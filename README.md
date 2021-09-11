@@ -35,12 +35,34 @@ Apple encourages the use of storyboards but keeping the flow out of view control
 
 However, back in the ObjC days, I used runtime magic and the knowledge that the whole process happens on the main thread to produce `performSegue(withIdentifier:prepare:)` which allows you to handle the preparation in the same code `performSegue` is called. In our case, the coordinator.
 
-### ResultSemaphore
+### AsyncCompletion
 
-`ResultSemaphore` extends `Result` across multiple threads to pass data from inside a block (say a network response) to the code waiting for it (say a network test). Note how we can mix the two to produce code like:
+AsyncCompletion provides a simple mechanism to convert functions with a variaty of common completion handler types to their `async`/`await` equivalents.
+
+For example, `withResultHandler` can be used to convert functions that have a [`Result`](https://developer.apple.com/documentation/swift/result) based completion handler:
 
 ```swift
-client.requestTrending(result: semaphore.signal)
+func getFoo(..., completion: @escaping (Result<Foo,Error>)->Void)
+
+@available(iOS 15.0.0, *)
+func foo(...) async throws -> Foo {
+   return try await withResultHandler { resultHandler in
+      getFoo(page: pageIndex, result: resultHandler)
+   }
+}
+```
+
+While `withCompletionHandler` can be used to convert the other popular completion handler type:
+
+```swift
+func getFoo(..., completion: @escaping (Foo?, Error?)->Void)
+
+@available(iOS 15.0.0, *)
+func foo(...) async throws -> Foo {
+   return try await withCompletionHandler { completionHandler in
+      getFoo(..., completion: completionHandler)
+   }
+}
 ```
 
 Very tidy.
