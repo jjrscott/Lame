@@ -67,9 +67,15 @@ func foo(...) async throws -> Foo {
 
 Very tidy.
 
-## Bugs
+### Storyboard constants
 
-Every real project has bugs that miss the ship date. As Lame is designed to be a good example, it has bugs too. (At least that's my story, and I'm probably not going to stick to it). Take a look at "[Poster images not appearing](https://github.com/jjrscott/Lame/issues/1)" for a cracking example.
+Runtime values like storyboard identifiers are dangerous, and unneccessary. `storyboard_constants` enables compile time connection to the internals of a storyboard. It achieves this by generating a Swift file containing constants for:
+
+- segue identifiers
+- storyboard identifiers
+- table view cell reuse identifiers
+
+If you remove a view from a storyboard and the constant will also be removed. Any code still using that constant will now fail to compile.
 
 ## Credits
 

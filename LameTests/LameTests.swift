@@ -35,6 +35,11 @@ class LameTests: XCTestCase {
         XCTAssertGreaterThan(trendingResults.count, 0)
     }
     
+    /**
+     testPosterRequestUsingExpecations and testPosterRequestUsingContinuations are the same test implemented in two
+     different ways.
+     */
+    
     func testPosterRequestUsingExpecations() {
         let client = TheMovieDatabase()
         

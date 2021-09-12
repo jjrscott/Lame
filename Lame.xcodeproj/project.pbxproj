@@ -28,6 +28,7 @@
 		06EF543426EDF1D80069BCA8 /* URLDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EF543326EDF1D80069BCA8 /* URLDataSource.swift */; };
 		06EF543826EE30B60069BCA8 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 06EF543626EE30B60069BCA8 /* Assets */; };
 		06EF543926EE30B60069BCA8 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 06EF543726EE30B60069BCA8 /* Scripts */; };
+		06EF543D26EE3DB40069BCA8 /* Main.storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EF543C26EE3DB40069BCA8 /* Main.storyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		06EF543326EDF1D80069BCA8 /* URLDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataSource.swift; sourceTree = "<group>"; };
 		06EF543626EE30B60069BCA8 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		06EF543726EE30B60069BCA8 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		06EF543C26EE3DB40069BCA8 /* Main.storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.storyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				053C520326ECCD9B000EFC52 /* AsyncCompletion.swift */,
 				06EF543326EDF1D80069BCA8 /* URLDataSource.swift */,
 				0514C6E822611A9B00F6F72F /* Main.storyboard */,
+				06EF543C26EE3DB40069BCA8 /* Main.storyboard.swift */,
 				0514C6EB22611A9D00F6F72F /* Assets.xcassets */,
 				0514C6ED22611A9D00F6F72F /* LaunchScreen.storyboard */,
 				0514C6F022611A9D00F6F72F /* Info.plist */,
@@ -258,7 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "Scripts/imageset_generator.pl -imageset_path Lame/Assets.xcassets/AppIcon.appiconset -source_path Assets/app-icon.pdf\n";
+			shellScript = "Scripts/imageset_generator.pl -imageset_path Lame/Assets.xcassets/AppIcon.appiconset -source_path Assets/app-icon.pdf\nScripts/storyboard_constants.pl -storyboard Lame/Base.lproj/Main.storyboard -output Lame/Main.storyboard.swift\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -280,6 +283,7 @@
 				057F11442263A64100EAD3F1 /* MovieViewController.swift in Sources */,
 				0514C6E522611A9B00F6F72F /* Coordinator.swift in Sources */,
 				057F11402263622100EAD3F1 /* Collection+Safe.swift in Sources */,
+				06EF543D26EE3DB40069BCA8 /* Main.storyboard.swift in Sources */,
 				059A995B2261F4AD0084369B /* MovieListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

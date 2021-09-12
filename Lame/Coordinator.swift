@@ -16,7 +16,7 @@ class Coordinator: UIResponder, UIApplicationDelegate {
 
 extension Coordinator: MovieListViewControllerDelegate {
     func movieListViewController(_ controller: MovieListViewController, didSelectMovie movie: MovieListViewModel.Movie) {
-        controller.performSegue(withIdentifier: "ShowMovie") { (movieViewController: MovieViewController) in
+        controller.performSegue(withIdentifier: MainSequeShowMovie) { (movieViewController: MovieViewController) in
             movieViewController.movie = movie
         }
     }
