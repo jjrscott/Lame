@@ -4,7 +4,7 @@ Lamé is a simple example of an MVVM-C application written in Swift for iOS. It 
 
 ### Setup
 
-This project builds against Xcode 12.5.1. If you wish to run this on a device you will need to:
+This project builds against Xcode 12.5.1 and Xcodde 13b5 (for async/await). If you wish to run this on a device you will need to:
 
 1. update the bundle identifier of the app to something other than `com.jjrscott.Lame`
 2. set the Team
