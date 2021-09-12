@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,8 @@
 		062909EE26EBEB340062FBC5 /* XCTestCase+Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */; };
 		06E7729A26B2AEE800CD42BE /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */; };
 		06EF543426EDF1D80069BCA8 /* URLDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EF543326EDF1D80069BCA8 /* URLDataSource.swift */; };
+		06EF543826EE30B60069BCA8 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 06EF543626EE30B60069BCA8 /* Assets */; };
+		06EF543926EE30B60069BCA8 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 06EF543726EE30B60069BCA8 /* Scripts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Expectation.swift"; sourceTree = "<group>"; };
 		06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
 		06EF543326EDF1D80069BCA8 /* URLDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataSource.swift; sourceTree = "<group>"; };
+		06EF543626EE30B60069BCA8 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		06EF543726EE30B60069BCA8 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				057F113B226326E400EAD3F1 /* README.md */,
 				0514C6E322611A9B00F6F72F /* Lame */,
 				0514C6F822611A9D00F6F72F /* LameTests */,
+				06EF543626EE30B60069BCA8 /* Assets */,
+				06EF543726EE30B60069BCA8 /* Scripts */,
 				0514C6E222611A9B00F6F72F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0514C6FE22611A9D00F6F72F /* Build configuration list for PBXNativeTarget "Lame" */;
 			buildPhases = (
+				06EF543526EE2D210069BCA8 /* ShellScript */,
 				0514C6DD22611A9B00F6F72F /* Sources */,
 				0514C6DE22611A9B00F6F72F /* Frameworks */,
 				0514C6DF22611A9B00F6F72F /* Resources */,
@@ -216,8 +223,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EF543826EE30B60069BCA8 /* Assets in Resources */,
 				0514C6EF22611A9D00F6F72F /* LaunchScreen.storyboard in Resources */,
 				0514C6EC22611A9D00F6F72F /* Assets.xcassets in Resources */,
+				06EF543926EE30B60069BCA8 /* Scripts in Resources */,
 				057F113C226326E400EAD3F1 /* README.md in Resources */,
 				0514C6EA22611A9B00F6F72F /* Main.storyboard in Resources */,
 			);
@@ -231,6 +240,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06EF543526EE2D210069BCA8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "Scripts/imageset_generator.pl -imageset_path Lame/Assets.xcassets/AppIcon.appiconset -source_path Assets/app-icon.pdf\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0514C6DD22611A9B00F6F72F /* Sources */ = {

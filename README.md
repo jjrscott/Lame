@@ -71,7 +71,9 @@ Very tidy.
 
 Every real project has bugs that miss the ship date. As Lame is designed to be a good example, it has bugs too. (At least that's my story, and I'm probably not going to stick to it). Take a look at "[Poster images not appearing](https://github.com/jjrscott/Lame/issues/1)" for a cracking example.
 
-## Gabriel Lamé
+## Credits
+
+### Gabriel Lamé
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Gabriel_Lam%C3%A9):
 
@@ -80,3 +82,9 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Gabriel_Lam%C3%A9):
 > Lamé was born in [Tours](https://en.wikipedia.org/wiki/Tours "Tours"), in today's *département* of [Indre-et-Loire](https://en.wikipedia.org/wiki/Indre-et-Loire "Indre-et-Loire").
 >
 > He became well known for his general theory of [curvilinear coordinates](https://en.wikipedia.org/wiki/Curvilinear_coordinates "Curvilinear coordinates") and his notation and study of classes of ellipse-like curves, now known as [Lamé curves](https://en.wikipedia.org/wiki/Lam%C3%A9_curve "Lamé curve") or superellipses.
+
+### App Icon
+
+The app icon comes from a [collection of posters](https://whip-site.com/game-of-thrones) of the 6<sup>th</sup> season of the HBO series [Game of Thrones](https://en.wikipedia.org/wiki/Game_of_Thrones). For the record, I still think the final scene should have been [Night's King](https://en.wikipedia.org/wiki/Night_King) sat on the [Iron Throne](https://en.wikipedia.org/wiki/Iron_Throne_(A_Song_of_Ice_and_Fire)), breaking the [fourth wall](https://en.wikipedia.org/wiki/Fourth_wall).
+
+The [`imageset_generator`](https://github.com/jjrscott/Sidekick/blob/master/imageset_generator) script used to generate all the different app icons sizes (18 at the last count) is part of another project called [Sidekick](https://github.com/jjrscott/Sidekick). Sidekick is a collection of scripts for Xcode based development, including 
