@@ -8,17 +8,6 @@
 
 import Foundation
 
-class TheMovieDatabaseURLSessionDelegate : NSObject, URLSessionDelegate {
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        if let serverTrust = challenge.protectionSpace.serverTrust {
-            completionHandler(.useCredential, URLCredential(trust: serverTrust))
-        } else {
-            completionHandler(.rejectProtectionSpace, nil)
-        }
-        
-    }
-}
-
 class TheMovieDatabase {
     
     enum Error: Swift.Error {
@@ -50,11 +39,17 @@ class TheMovieDatabase {
         let results: [TrendingResult]
     }
         
+    private let dataSource : URLDataSource
+    
+    init(dataSource : URLDataSource = URLSessionDataSource()) {
+        self.dataSource = dataSource
+    }
+    
     func requestTrending(page pageIndex: Int = 1, result: @escaping (Result<[TrendingResult],Swift.Error>)->Void) {
         
         guard let url = URL(string: "\(trendingUrlPrefix)?api_key=\(apiKey)&page=\(pageIndex)") else { fatalError() }
         
-        let task = urlSession.dataTask(with: url) { [unowned self] (data, response, error) in
+        dataSource.dataTask(with: url) { [unowned self] (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -93,7 +88,6 @@ class TheMovieDatabase {
                 return
             }
         }
-        task.resume()
     }
     
     // MARK: - Poster
@@ -107,7 +101,7 @@ class TheMovieDatabase {
         //    https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)
         //    https://en.wikipedia.org/wiki/Copy-on-write
         
-        let task = urlSession.dataTask(with: url) { (data, response, error) in
+        dataSource.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -135,7 +129,6 @@ class TheMovieDatabase {
             
             result(.success(data))
         }
-        task.resume()
     }
     
     // MARK: - Date decoding
@@ -161,15 +154,6 @@ class TheMovieDatabase {
         throw Error.invalidDate
     }
     
-    // MARK: - URLSession
-    
-    private lazy var urlSession = defaultURLSession()
-    
-    private func defaultURLSession() -> URLSession {
-        let configuration = URLSessionConfiguration.default
-        let delegate = TheMovieDatabaseURLSessionDelegate()
-        return URLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
-    }
 }
 
 @available(iOS 15.0.0, *)

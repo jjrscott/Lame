@@ -25,6 +25,7 @@
 		062909EC26EBBCF30062FBC5 /* UIResponder+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */; };
 		062909EE26EBEB340062FBC5 /* XCTestCase+Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */; };
 		06E7729A26B2AEE800CD42BE /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */; };
+		06EF543426EDF1D80069BCA8 /* URLDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EF543326EDF1D80069BCA8 /* URLDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		062909EB26EBBCF30062FBC5 /* UIResponder+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Delegate.swift"; sourceTree = "<group>"; };
 		062909ED26EBEB340062FBC5 /* XCTestCase+Expectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Expectation.swift"; sourceTree = "<group>"; };
 		06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
+		06EF543326EDF1D80069BCA8 /* URLDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				057F11412263A5EE00EAD3F1 /* UIViewController+Segue.swift */,
 				06E7729926B2AEE800CD42BE /* ScaledHeightImageView.swift */,
 				053C520326ECCD9B000EFC52 /* AsyncCompletion.swift */,
+				06EF543326EDF1D80069BCA8 /* URLDataSource.swift */,
 				0514C6E822611A9B00F6F72F /* Main.storyboard */,
 				0514C6EB22611A9D00F6F72F /* Assets.xcassets */,
 				0514C6ED22611A9D00F6F72F /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 				06E7729A26B2AEE800CD42BE /* ScaledHeightImageView.swift in Sources */,
 				057F11422263A5EE00EAD3F1 /* UIViewController+Segue.swift in Sources */,
 				057F1132226264DA00EAD3F1 /* MovieListViewCell.swift in Sources */,
+				06EF543426EDF1D80069BCA8 /* URLDataSource.swift in Sources */,
 				059A995F2261F5D70084369B /* MovieListViewModel.swift in Sources */,
 				057F11342262760300EAD3F1 /* TheMovieDatabase.swift in Sources */,
 				062909EC26EBBCF30062FBC5 /* UIResponder+Delegate.swift in Sources */,
