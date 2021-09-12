@@ -8,6 +8,17 @@
 
 import Foundation
 
+class TheMovieDatabaseURLSessionDelegate : NSObject, URLSessionDelegate {
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        if let serverTrust = challenge.protectionSpace.serverTrust {
+            completionHandler(.useCredential, URLCredential(trust: serverTrust))
+        } else {
+            completionHandler(.rejectProtectionSpace, nil)
+        }
+        
+    }
+}
+
 class TheMovieDatabase {
     
     enum Error: Swift.Error {
@@ -38,12 +49,12 @@ class TheMovieDatabase {
         let totalResults: Int
         let results: [TrendingResult]
     }
-    
+        
     func requestTrending(page pageIndex: Int = 1, result: @escaping (Result<[TrendingResult],Swift.Error>)->Void) {
         
         guard let url = URL(string: "\(trendingUrlPrefix)?api_key=\(apiKey)&page=\(pageIndex)") else { fatalError() }
         
-        let task = URLSession.shared.dataTask(with: url) { [unowned self] (data, response, error) in
+        let task = urlSession.dataTask(with: url) { [unowned self] (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -96,7 +107,7 @@ class TheMovieDatabase {
         //    https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)
         //    https://en.wikipedia.org/wiki/Copy-on-write
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = urlSession.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -148,6 +159,16 @@ class TheMovieDatabase {
             return date
         }
         throw Error.invalidDate
+    }
+    
+    // MARK: - URLSession
+    
+    private lazy var urlSession = defaultURLSession()
+    
+    private func defaultURLSession() -> URLSession {
+        let configuration = URLSessionConfiguration.default
+        let delegate = TheMovieDatabaseURLSessionDelegate()
+        return URLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
     }
 }
 
